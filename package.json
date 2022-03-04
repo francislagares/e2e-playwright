@@ -14,7 +14,8 @@
     "test:playwright": "playwright test",
     "test:watch": "playwright-watch test",
     "test:debug": "PWDEBUG=1 npx playwright test",
-    "test:debug-windows": "set PWDEBUG=1 && npx playwright test"
+    "test:debug-windows": "set PWDEBUG=1 && npx playwright test",
+    "playwright:report": "playwright show-report"
   },
   "browserslist": {
     "production": [
