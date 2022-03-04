@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { loadPage, assertTitle } from './custom/helpers';
 
 test.describe('Playwright Fundamentals', () => {
   test('Simple starter Test', async ({ page }) => {
@@ -51,7 +52,7 @@ test.describe('Playwright Fundamentals', () => {
     await expect(nonExistingElement).not.toBeVisible();
   });
 
-  test.only('Screenshot', async ({ page }) => {
+  test('Screenshot', async ({ page }) => {
     await page.goto('https://example.com');
 
     await page.screenshot({
@@ -60,7 +61,7 @@ test.describe('Playwright Fundamentals', () => {
     });
   });
 
-  test.only('Single element Screenshot', async ({ page }) => {
+  test('Single element Screenshot', async ({ page }) => {
     await page.goto('http://example.com');
 
     const element = page.locator('h1');
@@ -68,5 +69,10 @@ test.describe('Playwright Fundamentals', () => {
     await element.screenshot({
       path: './e2e/screenshots/element_screenshot.png',
     });
+  });
+
+  test('Custom Helpers', async ({ page }) => {
+    await loadPage(page);
+    await assertTitle(page);
   });
 });
