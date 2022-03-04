@@ -1,4 +1,4 @@
-import { PlaywrightTestConfig } from '@playwright/test';
+import { devices, PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
   timeout: 40000,
@@ -8,13 +8,13 @@ const config: PlaywrightTestConfig = {
     viewport: { width: 1280, height: 720 },
     actionTimeout: 5000,
     ignoreHTTPSErrors: true,
-    video: 'off',
-    screenshot: 'off',
+    video: 'retain-on-failure',
+    screenshot: 'only-on-failure',
   },
   projects: [
     {
       name: 'Chromium',
-      use: { browserName: 'chromium' },
+      use: { browserName: 'chromium', ...devices['Pixel 4'] },
     },
     {
       name: 'Firefox',
@@ -22,7 +22,7 @@ const config: PlaywrightTestConfig = {
     },
     {
       name: 'Webkit',
-      use: { browserName: 'webkit' },
+      use: { browserName: 'webkit', ...devices['Pixel 4'] },
     },
   ],
   reporter: [

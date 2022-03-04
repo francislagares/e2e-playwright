@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { loadPage, assertTitle } from './custom/helpers';
 
-test.describe('Playwright Fundamentals', () => {
+test.describe.parallel('Playwright Fundamentals', () => {
   test('Simple starter Test', async ({ page }) => {
     await page.goto('https://example.com');
 
@@ -23,7 +23,7 @@ test.describe('Playwright Fundamentals', () => {
     );
   });
 
-  test('Working with Input', async ({ page }) => {
+  test.only('Working with Input', async ({ page }) => {
     await page.goto('http://zero.webappsecurity.com/');
     await page.click('#signin_button');
 
