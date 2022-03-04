@@ -6,7 +6,7 @@ const config: PlaywrightTestConfig = {
   use: {
     headless: true,
     viewport: { width: 1280, height: 720 },
-    actionTimeout: 15000,
+    actionTimeout: 5000,
     ignoreHTTPSErrors: true,
     video: 'off',
     screenshot: 'off',
@@ -24,6 +24,10 @@ const config: PlaywrightTestConfig = {
       name: 'Webkit',
       use: { browserName: 'webkit' },
     },
+  ],
+  reporter: [
+    [process.env.CI ? 'github' : 'list'],
+    ['html', { outputFolder: './e2e/reports', open: 'on-failure' }],
   ],
 };
 
