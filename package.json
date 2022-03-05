@@ -12,6 +12,7 @@
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx|json|md)\" --write",
     "postinstall": "husky install",
     "test:playwright": "playwright test",
+    "test:e2e": "playwright test --config=e2e-playwright.config.ts --project=Chromium",
     "test:watch": "playwright-watch test",
     "test:debug": "PWDEBUG=1 npx playwright test",
     "test:debug-windows": "set PWDEBUG=1 && npx playwright test",
