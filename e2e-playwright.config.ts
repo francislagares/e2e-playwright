@@ -27,7 +27,7 @@ const config: PlaywrightTestConfig = {
     },
   ],
   reporter: [
-    [process.env.CI ? 'github' : 'list'],
+    ['list'],
     ['html', { outputFolder: './tests/e2e/reports', open: 'never' }],
   ],
 };
